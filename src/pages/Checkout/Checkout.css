@@ -1,0 +1,145 @@
+/* LAYOUT */
+
+.body-payment {
+    margin: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  
+  }
+  
+  .container-payment {
+    min-height: 200px;
+    background-color:#2fdd92;
+    width: 405px;
+    
+  }
+
+  .judul-header-address {
+    margin-left: 10px;
+    font-weight: bold;
+    color: #89b2a1;
+    font-size: 25px;
+  }
+  
+  .jalan {
+    display: flex;
+    align-items: center;
+    margin-top: -20px;
+  }
+  
+  .note {
+    min-height: 30px;
+    margin-left: 10px;
+    color: #89b2a1;
+    font-size: 15px;
+  
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-note {
+    color: #89b2a1;
+  }
+  
+  .alamat-user {
+    margin-left: 10px;
+    font-weight: bold;
+  }
+  
+/* CHOSOSE PAYMENT METHOD */
+  .header-address {
+    width: 85%;
+    min-height: 170px;
+    background-color: white;
+    margin: 20px auto;
+    border-radius: 20px;
+  }
+  
+  .content-payment {
+    width: 85%;
+    min-height: 300px;
+    background-color: white;
+    margin: 100px auto;
+    border-radius: 20px;
+  }
+  
+  .judul-payment-method {
+    margin-left: 10px;
+    font-weight: bold;
+    color: #89b2a1;
+    font-size: 25px;
+  }
+  
+  .rd-payment-method {
+    min-height: 60px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .rd-option {
+    margin-right: 20px;
+  }
+  
+  .rd-label {
+    margin-left: 20px;
+    font-size: 20px;
+  }
+  
+  .rd-harga {
+    margin-left: 20px;
+    color: gray;
+  }
+  
+  
+   /* FOOTER TOTAL PRICE */
+  .footer-order {
+    width: 100%;
+    min-height: 210px;
+    background-color: white;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    margin-top: -50px;
+  }
+  
+  .dekripsi-total {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .total-footer {
+    margin-top: 25px;
+    
+  }
+  
+  .total-price {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
+  .nominal-total-price {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
+  .nominal-deskripsi {
+    margin-top: 25px;
+    text-align: right;
+    margin-left: 125px;
+  }
+  
+  .order {
+    width: 200px;
+    height: 30px;
+    background-color: #2fdd92;
+    border-radius: 10px;
+  }
+  
+  .btn-order {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }

@@ -1,0 +1,299 @@
+:root {
+  --color-primary: #eb2f64;
+  --color-primary-light: #ff3366;
+  --color-primary-dark: #ba265d;
+  --color-grey-light-1: #faf9f9;
+  --color-grey-light-2: #f4f2f2;
+  --color-grey-light-3: #f0eeee;
+  --color-grey-light-4: #ccc;
+  --color-grey-dark-1: #333;
+  --color-grey-dark-2: #777;
+  --color-grey-dark-3: #999;
+}
+
+.body {
+  background-color: #f4f4f4;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  height: 300px;
+  background-color: #2fdd92;
+  width: 400px;
+}
+
+.container {
+  min-height: 400px;
+  min-width: 400px;
+  background-color: grey;
+  margin-top: -100px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+.body-payment {
+  margin: 0;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-payment {
+  min-height: 200px;
+  background-color: #2fdd92;
+}
+
+.judul-halaman {
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.kembali {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.nama-judul {
+  margin-left: 10px;
+}
+
+.profile-dokter {
+  height: 8rem;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.deskripsi-dokter {
+  font-size: 17px;
+  color: #ffffff;
+  font-weight: 400;
+  margin-left: 15px;
+}
+
+.content-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header-pasien {
+  min-height: 65px;
+  background-color: #ffffff;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  margin-bottom: 2px;
+}
+
+.user {
+  display: flex;
+}
+
+.pasien {
+  margin-left: 30px;
+  margin-top: 10px;
+}
+
+.nama-pasien {
+  text-align: right;
+  margin-left: 130px;
+  margin-top: 10px;
+}
+
+.list-obat {
+  min-height: 100px;
+  background-color: white;
+  margin-bottom: 1.5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.box-resep {
+  margin-left: 20px;
+}
+
+.jumlah-obat {
+  color: #2fdd92;
+  margin-left: 30px;
+  font-weight: bold;
+}
+
+.box-nama-obat {
+  color: #2fdd92;
+}
+
+.gambar-produk {
+  width: 70px;
+  height: 80px;
+  border-radius: 10px;
+  margin-left: 10px;
+}
+
+.total-harga {
+  min-height: 50px;
+  background-color: #ffffff;
+  display: flex;
+}
+
+.nominal-total {
+  margin-left: 250px;
+}
+
+.download-checkout {
+  min-height: 60px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dowload-pdf {
+  width: 200px;
+  height: 30px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.checkout {
+  width: 200px;
+  height: 30px;
+  background-color: #2fdd92;
+  border-radius: 10px;
+}
+
+.gbr-trash {
+  width: 20px;
+  height: 25px;
+}
+
+.btn-delete {
+  width: 30px;
+  height: 30px;
+}
+
+.judul-header-address {
+  margin-left: 10px;
+  font-weight: bold;
+  color: #89b2a1;
+  font-size: 25px;
+}
+
+.jalan {
+  display: flex;
+  align-items: center;
+  margin-top: -20px;
+}
+
+.note {
+  min-height: 30px;
+  margin-left: 10px;
+  color: #89b2a1;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-note {
+  color: #89b2a1;
+}
+
+.alamat-user {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.header-address {
+  width: 85%;
+  min-height: 170px;
+  background-color: white;
+  margin: 20px auto;
+  border-radius: 20px;
+}
+
+.content-payment {
+  width: 85%;
+  min-height: 300px;
+  background-color: white;
+  margin: 100px auto;
+  border-radius: 20px;
+}
+
+.judul-payment-method {
+  margin-left: 10px;
+  font-weight: bold;
+  color: #89b2a1;
+  font-size: 25px;
+}
+
+.rd-payment-method {
+  min-height: 60px;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.rd-option {
+  margin-right: 20px;
+}
+
+.rd-label {
+  margin-left: 20px;
+  font-size: 20px;
+}
+
+.rd-harga {
+  margin-left: 20px;
+  color: gray;
+}
+
+.footer-order {
+  width: 100%;
+  min-height: 210px;
+  background-color: white;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  margin-top: -50px;
+}
+
+.dekripsi-total {
+  display: flex;
+  justify-content: center;
+}
+
+.total-footer {
+  margin-top: 25px;
+}
+
+.total-price {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.nominal-total-price {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.nominal-deskripsi {
+  margin-top: 25px;
+  text-align: right;
+  margin-left: 125px;
+}
+
+.order {
+  width: 200px;
+  height: 30px;
+  background-color: #2fdd92;
+  border-radius: 10px;
+}
+
+.btn-order {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}

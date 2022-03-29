@@ -1,0 +1,169 @@
+/* LAYOUT  */
+
+.body {
+    background-color: #f4f4f4;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .header {
+    
+    height: 300px;
+    background-color: #2fdd92;
+    width: 405px;
+    
+  }
+  
+  .container {
+    min-height: 400px;
+    background-color: grey;
+    margin-top: -100px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+  }
+
+  /* COMPONENTS */
+
+  /*   HEADER   */
+  .judul-halaman {
+    font-size: 18px;
+    text-transform: uppercase;
+    
+  }
+  
+  .kembali{
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+  
+  .nama-judul{
+    margin-left: 10px;
+  }
+  
+  .profile-dokter {
+    height: 8rem;
+    margin-left: 20px;
+    margin-top: 20px;
+    
+  }
+  
+  .deskripsi-dokter {
+    font-size: 17px;
+    color: #ffffff;
+    font-weight: 400;
+    margin-left: 15px;
+  
+    
+  }
+  
+  .content-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  
+  }
+  
+  /*  CONTAINER  */
+  .header-pasien {
+    min-height: 65px;
+    background-color: #ffffff;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    margin-bottom: 2px;
+  
+  
+  }
+  
+  .user {
+    display: flex;
+  }
+  
+  .pasien {
+    margin-left: 30px;
+    margin-top: 10px;
+  }
+  
+  .nama-pasien {
+    text-align: right;
+    margin-left: 130px;
+    margin-top: 10px;
+    
+  }
+  
+  .list-obat {
+    min-height: 100px;
+    background-color: white;
+    margin-bottom: 1.5px;
+  
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .box-resep {
+    margin-left: 20px;
+  }
+  
+  .jumlah-obat {
+    color: #2fdd92;
+    margin-left: 30px;
+    font-weight: bold;
+  }
+  
+  .box-nama-obat {
+    color: #2fdd92;
+  }
+  
+  .gambar-produk {
+    width: 70px;
+    height: 80px;
+    border-radius: 10px;
+    margin-left: 10px;
+  }
+  
+  .total-harga {
+    min-height: 50px;
+    background-color: #ffffff;
+  
+    display: flex;
+  }
+  
+  .nominal-total {
+    margin-left: 250px;
+  }
+  
+  .download-checkout {
+    min-height: 60px;
+    background-color: white;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .dowload-pdf {
+    width: 200px;
+    height: 30px;
+    background-color: white;
+    border-radius: 10px;
+  }
+  
+  .checkout {
+    width: 200px;
+    height: 30px;
+    background-color: #2fdd92;
+    border-radius: 10px;
+  }
+  
+  .gbr-trash {
+    width: 20px;
+    height: 25px;
+  }
+  
+  .btn-delete {
+    width: 30px;
+    height: 30px;
+  }
