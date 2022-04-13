@@ -1,145 +1,245 @@
 /* LAYOUT */
 
 .body-payment {
-    margin: 0;
-    background-color: #f4f4f4;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
+  margin: 0;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-payment {
+  min-height: 400px;
+  background-color: #3B5BAE;
+  width: 395px;
+}
+
+.header-address {
+  width: 85%;
+  min-height: 135px;
+  background-color: white;
+  margin: 50px auto;
+  border-radius: 20px;
+}
+
+.judul-header-address {
+  margin-left: 10px;
+  font-weight: bold;
+  color: #C5660E;
+  font-size: 15px;
+  margin-top: 10px;
+
+  font-family: "Manrope";
+  font-style: normal;
+}
+
+.jalan {
+  display: flex;
+  margin-top: -20px;
+  flex-direction: column;
+}
+
+.jalan-user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.note {
+  min-height: 30px;
+  width: 250px;
+  margin-left: 10px;
+  color: #89b2a1;
+  font-size: 12px;
+
+  display: flex;
+  flex-direction: column;
+  font-family: "Manrope";
+  font-style: normal;
+}
+
+.input-note {
+  color: #89b2a1;
+  font-size: 10px;
+}
+
+.alamat-user {
+  margin-left: 10px;
+
+  font-size: 13px;
+  font-weight: 400;
+
+  font-family: "Manrope";
+  font-style: normal;
+}
+
+/* CHOSOSE PAYMENT METHOD */
+
+.content-payment {
+  width: 85%;
+  min-height: 250px;
+  background-color: white;
+  margin: auto;
+  margin-bottom: 50px;
+  border-radius: 20px;
+}
+
+.judul-payment-method {
+  margin-left: 20px;
+  font-weight: bold;
+  color: #C5660E;
+  font-size: 20px;
+
+  font-family: "Manrope";
+  font-style: normal;
+}
+
+.box-list-payment {
+  padding-top: 20px;
+}
+
+.top-list-payment {
+  margin-top: 15px;
+}
+
+.rd-payment-method {
+  min-height: 60px;
+  margin-left: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.rd-option {
+  margin-right: 20px;
+}
+
+.rd-label {
+  margin-left: 20px;
+  font-size: 12px;
+  font-weight: bold;
+
+  font-family: "Manrope";
+  font-style: normal;
+}
+
+
+
+.rd-harga {
+  margin-left: 20px;
+  color: gray;
+  font-size: 10px;
+  font-weight: 700;
+
+  font-family: "Manrope";
+  font-style: normal;
+}
+
+.harga-option {
+  font-family: "Manrope";
+  font-style: normal;
+}
+
+/* FOOTER TOTAL PRICE */
+.footer-order {
+  height: 240px;
+  margin-top: 70px;
+  width: 396px;
+  background-color: white;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+}
+
+.dekripsi-total {
+  display: flex;
+  justify-content: center;
+  font-family: "Manrope";
+  font-style: normal;
+}
+
+.total-footer {
+  margin-top: 35px;
+}
+
+.deskripsi-total-price {
+  color: #3B5BAE;
+  font-size: 12px;
+  margin-top: 5px;
+  font-weight: 700;
   
-  }
+}
+
+.total-price {
+  font-size: 20px;
+  font-weight: bold;
   
+}
+
+.nominal-total-price {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nominal-deskripsi {
+  margin-top: 35px;
+  text-align: right;
+  margin-left: 125px;
+}
+
+.order {
+  width: 200px;
+  height: 30px;
+  background-color: #2fdd92;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: "Manrope";
+  font-style: normal;
+}
+
+.btn-order {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+
+/* TEST RADIO BUTTON */
+
+
+
+
+
+@media only screen and (min-width: 768px) and (min-height: 1024px) {
   .container-payment {
-    min-height: 200px;
-    background-color:#2fdd92;
-    width: 405px;
-    
+    height: 1024px;
+    background-color: #2fdd92;
+    width: 768px;
   }
 
-  .judul-header-address {
-    margin-left: 10px;
-    font-weight: bold;
-    color: #89b2a1;
-    font-size: 25px;
-  }
-  
-  .jalan {
-    display: flex;
-    align-items: center;
-    margin-top: -20px;
-  }
-  
-  .note {
-    min-height: 30px;
-    margin-left: 10px;
-    color: #89b2a1;
-    font-size: 15px;
-  
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .input-note {
-    color: #89b2a1;
-  }
-  
-  .alamat-user {
-    margin-left: 10px;
-    font-weight: bold;
-  }
-  
-/* CHOSOSE PAYMENT METHOD */
   .header-address {
-    width: 85%;
-    min-height: 170px;
-    background-color: white;
-    margin: 20px auto;
-    border-radius: 20px;
+    margin-top: 70px;
+    margin-bottom: 100px;
   }
-  
-  .content-payment {
-    width: 85%;
-    min-height: 300px;
-    background-color: white;
-    margin: 100px auto;
-    border-radius: 20px;
-  }
-  
-  .judul-payment-method {
-    margin-left: 10px;
-    font-weight: bold;
-    color: #89b2a1;
-    font-size: 25px;
-  }
-  
-  .rd-payment-method {
-    min-height: 60px;
-    margin-left: 10px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .rd-option {
-    margin-right: 20px;
-  }
-  
-  .rd-label {
-    margin-left: 20px;
-    font-size: 20px;
-  }
-  
-  .rd-harga {
-    margin-left: 20px;
-    color: gray;
-  }
-  
-  
-   /* FOOTER TOTAL PRICE */
+
   .footer-order {
-    width: 100%;
-    min-height: 210px;
-    background-color: white;
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
-    margin-top: -50px;
+    margin-top: 110px;
   }
-  
+
   .dekripsi-total {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
+    margin-left: 20px;
   }
-  
-  .total-footer {
-    margin-top: 25px;
-    
-  }
-  
-  .total-price {
-    font-size: 25px;
-    font-weight: bold;
-  }
-  
-  .nominal-total-price {
-    font-size: 25px;
-    font-weight: bold;
-  }
-  
+
   .nominal-deskripsi {
-    margin-top: 25px;
-    text-align: right;
-    margin-left: 125px;
+    margin-left: 520px;
   }
-  
-  .order {
-    width: 200px;
-    height: 30px;
-    background-color: #2fdd92;
-    border-radius: 10px;
+
+  .content-payment {
+    height: 400px;
   }
-  
-  .btn-order {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
+
+  .rd-payment-method {
+    height: 80px;
   }
+}

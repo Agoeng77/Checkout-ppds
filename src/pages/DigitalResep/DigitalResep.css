@@ -1,169 +1,362 @@
 /* LAYOUT  */
 
 .body {
-    background-color: #f4f4f4;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  background-color: #f0f0f0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  height: 300px;
+  background-color: #3B5BAE;
+  width: 395px;
+}
+
+.container {
+  min-height: 400px;
+  min-width: 395px;
+  background-color: grey;
+  margin-top: -100px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+
+/* COMPONENTS */
+
+/*   HEADER   */
+.judul-halaman {
+  font-size: 25px;
+  font-weight: bold;
+  font-family: "Manrope";
   
-  .header {
-    
-    height: 300px;
-    background-color: #2fdd92;
-    width: 405px;
-    
-  }
+  color: white;
   
+}
+
+.kembali {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.nama-judul {
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.profile-dokter {
+  height: 8rem;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.deskripsi-dokter {
+  font-size: 20px;
+  color: #ffffff;
+  font-weight: bold;
+  margin-left: 15px;
+  font-family: "Manrope";
+  font-style: normal;
+}
+
+.deskripsi-rs-ahli {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.content-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/*  CONTAINER  */
+.header-pasien {
+  min-height: 65px;
+  background-color: #ffffff;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  margin-bottom: 2px;
+}
+
+.style-nama-pasien {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.user {
+  display: flex;
+}
+
+.pasien {
+  margin-left: 30px;
+  margin-top: 10px;
+  font-size: 15px;
+
+  /* font-family: "Manrope";
+  font-style: normal; */
+
+  font-family: "Manrope";
+  font-style: normal;
+  
+}
+
+.nama-pasien {
+  text-align: right;
+  margin-left: 120px;
+  margin-top: 10px;
+  font-size: 15px;
+
+  /* font-family: "Manrope";
+  font-style: normal; */
+
+  font-family: "Manrope";
+  font-style: normal;
+}
+
+.list-obat {
+  min-height: 100px;
+  background-color: white;
+  margin-bottom: 1.5px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.box-resep {
+  margin-left: 25px;
+}
+
+.jumlah-obat {
+  color: #760000;
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 14px;
+
+  /* font-family: "Manrope";
+  font-style: normal; */
+
+  font-family: "Manrope";
+  font-style: normal;
+}
+
+.box-nama-obat {
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+
+  /* font-family: "Manrope";
+  font-style: normal; */
+
+  font-family: "Manrope";
+  font-style: normal;
+}
+
+.style-cara-pakai {
+  font-size: 12px;
+  font-weight: 400;
+
+  /* font-family: "Nunito Sans";
+  font-style: normal; */
+
+  font-family: "Manrope";
+  font-style: normal;
+
+}
+
+
+/* CUSTOM CHECKBOX */
+
+.checkbox{
+  margin-left: 25px;
+}
+
+input[type="checkbox"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  /* Remove most all native input styles */
+  appearance: none;
+  /* For iOS < 15 */
+  background-color: var(--form-background);
+  /* Not removed via appearance */
+  margin: 0;
+
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+
+  display: grid;
+  place-content: center;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transform: scale(0);
+  transform-origin: bottom left;
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+  /* Windows High Contrast Mode */
+  background-color: CanvasText;
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+input[type="checkbox"]:focus {
+  outline: max(2px, 0.15em) solid currentColor;
+  outline-offset: max(2px, 0.15em);
+}
+
+/* CUSTOM CHECKBOX */
+
+
+
+.gambar-produk {
+  width: 70px;
+  height: 80px;
+  border-radius: 10px;
+  margin-left: 20px;
+}
+
+.box-harga-obat {
+  /* font-family: "Manrope";
+  font-style: normal; */
+
+  font-family: "Manrope";
+  font-style: normal;
+}
+
+.total-harga {
+  height: 50px;
+  background-color: #ffffff;
+  font-size: 18px;
+  display: flex;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: bold;
+ 
+}
+
+.nominal-total {
+  margin-left: 200px;
+}
+
+.download-checkout {
+  min-height: 60px;
+  background-color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  
+}
+
+.dowload-pdf {
+  width: 200px;
+  height: 30px;
+  background-color: #F69D4A;
+  border-radius: 10px;
+  font-size: 15px;
+  font-family: "Manrope";
+  font-weight: bold;
+}
+
+.checkout {
+  width: 200px;
+  height: 30px;
+  background-color: #3B5BAE;
+  border-radius: 10px;
+  font-size: 15px;
+  color: white;
+  font-weight: bold;
+
+  font-family: "Manrope";
+  font-style: normal;
+}
+
+.gbr-trash {
+  width: 20px;
+  height: 25px;
+}
+
+.btn-delete {
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+}
+
+.style-or {
+  font-size: 15px;
+}
+
+@media only screen and (min-width: 768px) and (min-height: 1024px) {
   .container {
-    min-height: 400px;
-    background-color: grey;
-    margin-top: -100px;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
+    width: 768px;
   }
 
-  /* COMPONENTS */
+  .profile-dokter{
+    margin-left: 40px;
+    height: 9rem;
+    margin-top: 10px;
+  }
 
-  /*   HEADER   */
-  .judul-halaman {
-    font-size: 18px;
-    text-transform: uppercase;
-    
-  }
-  
-  .kembali{
-    margin-left: 20px;
-    margin-top: 20px;
-  }
-  
-  .nama-judul{
-    margin-left: 10px;
-  }
-  
-  .profile-dokter {
-    height: 8rem;
-    margin-left: 20px;
-    margin-top: 20px;
-    
-  }
-  
-  .deskripsi-dokter {
-    font-size: 17px;
-    color: #ffffff;
-    font-weight: 400;
-    margin-left: 15px;
-  
-    
-  }
-  
-  .content-header{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  
-  }
-  
-  /*  CONTAINER  */
-  .header-pasien {
-    min-height: 65px;
-    background-color: #ffffff;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    margin-bottom: 2px;
-  
-  
-  }
-  
-  .user {
-    display: flex;
-  }
-  
-  .pasien {
+  .deskripsi-dokter{
     margin-left: 30px;
-    margin-top: 10px;
   }
-  
-  .nama-pasien {
-    text-align: right;
-    margin-left: 130px;
-    margin-top: 10px;
-    
-  }
-  
-  .list-obat {
-    min-height: 100px;
-    background-color: white;
-    margin-bottom: 1.5px;
-  
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  
-  .box-resep {
-    margin-left: 20px;
-  }
-  
-  .jumlah-obat {
-    color: #2fdd92;
-    margin-left: 30px;
-    font-weight: bold;
-  }
-  
-  .box-nama-obat {
-    color: #2fdd92;
-  }
-  
-  .gambar-produk {
-    width: 70px;
-    height: 80px;
-    border-radius: 10px;
-    margin-left: 10px;
-  }
-  
-  .total-harga {
-    min-height: 50px;
-    background-color: #ffffff;
-  
-    display: flex;
-  }
-  
-  .nominal-total {
-    margin-left: 250px;
-  }
-  
-  .download-checkout {
-    min-height: 60px;
-    background-color: white;
-  
+
+
+  .container-content {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
   }
-  
-  .dowload-pdf {
-    width: 200px;
-    height: 30px;
-    background-color: white;
-    border-radius: 10px;
+
+  .nama-pasien {
+    margin-left: 470px;
   }
-  
-  .checkout {
-    width: 200px;
-    height: 30px;
-    background-color: #2fdd92;
-    border-radius: 10px;
-  }
-  
-  .gbr-trash {
-    width: 20px;
-    height: 25px;
-  }
-  
+
   .btn-delete {
-    width: 30px;
-    height: 30px;
+    margin-left: 70px;
   }
+
+  .gambar-produk {
+    margin-left: 40px;
+    width: 100px;
+    height: 130px;
+  }
+
+  .header {
+    width: 768px;
+  }
+
+  .download-checkout {
+    height: 95px;
+  }
+  
+
+  .list-obat {
+    height: 200px;
+  }
+  .box-resep {
+    margin-left: 50px;
+  }
+
+  .jumlah-obat {
+    margin-left: 240px;
+  }
+
+  .nominal-total {
+    margin-left: 578px;
+  }
+}
