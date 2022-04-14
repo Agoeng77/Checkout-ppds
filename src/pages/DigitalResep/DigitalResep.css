@@ -30,6 +30,7 @@
   font-size: 25px;
   font-weight: bold;
   font-family: "Manrope";
+  margin-top: 10px;
   
   color: white;
   
@@ -139,7 +140,7 @@
 .jumlah-obat {
   color: #760000;
   margin-left: -45px;
-  margin-top: 50px;
+  margin-top: 10px;
   
   font-weight: bold;
   font-size: 14px;
@@ -243,13 +244,11 @@ input[type="checkbox"]:focus {
 }
 
 .box-harga-obat {
-  /* font-family: "Manrope";
-  font-style: normal; */
-
+  
   font-family: "Manrope";
   font-style: normal;
   margin-left: 45px;
-  margin-top: -10px;
+  margin-top: -1px;
 }
 
 .total-harga {
@@ -271,6 +270,7 @@ input[type="checkbox"]:focus {
   min-height: 60px;
   background-color: white;
 
+ 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -294,11 +294,11 @@ input[type="checkbox"]:focus {
   height: 30px;
   background-color: #3B5BAE;
   border-radius: 10px;
-  font-size: 15px;
+  font-size: 18px;
   color: white;
-  font-weight: bold;
-
-  font-family: "Manrope";
+  font-weight: 800;
+  margin-bottom: 55px;
+  font-family: "Open Sans";
   font-style: normal;
 }
 

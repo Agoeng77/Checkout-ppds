@@ -49,7 +49,7 @@ function MapsPinpoint() {
           >
             <i className="fa-solid fa-arrow-left"></i>
           </iconbutton>
-          <span className="nama-judul">Cari Alamat</span>
+          <span className="nama-judul">Pin Point</span>
         </div>
         <div className="maps">
         <LoadScript googleMapsApiKey="AIzaSyB6Jb0JULqpai24UL-zql2BW7UeG0TAGGE">

@@ -9,7 +9,7 @@
   
   .container-alamat {
     min-height: 860px;
-    background-color: #2fdd92;
+    background-color: #3B5BAE;
     width: 395px;
   }
 
@@ -20,7 +20,7 @@
 
     font-size: 15px;
     font-weight: 400;
-    font-family: "Righteous";
+    font-family: "Manrope";
     font-style: normal;
     color: white;
   }
@@ -43,10 +43,10 @@
     margin-left: 20px;
     padding-top: 10px;
     
-    font-weight: bold;
-    color: #89b2a1;
+    font-weight: 800;
+    color: black;
     font-size: 15px;
-    font-family: "Righteous";
+    font-family: "Manrope";
     font-style: normal;   
   }
 
@@ -58,7 +58,7 @@
 
     font-weight: 600;
     font-size: 18px;
-    font-family: "Righteous";
+    font-family: "Manrope";
     font-style: normal; 
   }
 
@@ -67,8 +67,9 @@
     margin-top: 10px;
     color: black;
 
+    font-weight: 600;
     font-size: 15px;
-    font-family: "Righteous";
+    font-family: "Manrope";
     font-style: normal; 
   }
 
@@ -77,8 +78,9 @@
     margin-top: 10px;
     color: black;
 
+    font-weight: 600;
     font-size: 15px;
-    font-family: "Righteous";
+    font-family: "Manrope";
     font-style: normal;
   }
 
@@ -93,12 +95,13 @@
 
     margin-top: 20px;
 
-    background-color: #2fdd92;
+    background-color: #3B5BAE;
     border-radius: 10px;
-
-    font-size: 18px;
     
-    font-family: "Righteous";
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+    font-family:"Open Sans";
     font-style: normal;
   }
   
@@ -113,12 +116,13 @@
 
     margin-top: 20px;
 
-    background-color: white;
+    background-color: #F69D4A;
     border-radius: 10px;
 
     font-size: 25px;
     
-    font-family: "Righteous";
+    font-weight: bold;
+    font-family: "Open Sans";
     font-style: normal;
   }
 

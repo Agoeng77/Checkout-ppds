@@ -77,6 +77,11 @@ function CariAlamat() {
                 placeholder="Alamat Lengkap"
               />
             </div>
+
+            <div className="box-penerima">
+              <div className="nama-penerima">Note</div>
+              <input className="input-note" placeholder="Masukkan Note" />
+            </div>
           </div>
         </div>
 

@@ -123,7 +123,7 @@ function DigitalResep() {
 
             <div className="deskripsi-obat">
               <div className="header-list">
-                  <p className="box-nama-obat">Amoxcillin</p>
+                  <p className="box-nama-obat">Vitamin C</p>
                   <h3 className="box-harga-obat">30.000</h3>
               </div>
               <div className="box-resep">

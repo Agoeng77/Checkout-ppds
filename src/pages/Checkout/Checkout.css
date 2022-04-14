@@ -6,10 +6,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: auto;
+  height: auto;
 }
 
 .container-payment {
-  min-height: 400px;
+  min-height: 100%;
   background-color: #3B5BAE;
   width: 395px;
 }
@@ -23,23 +25,24 @@
 }
 
 .judul-header-address {
-  margin-left: 10px;
+  
+  margin-left: 20px;
+  margin-top: 20px;
   font-weight: bold;
   color: #C5660E;
-  font-size: 15px;
-  margin-top: 10px;
-
+  font-size: 20px;
   font-family: "Manrope";
   font-style: normal;
 }
 
 .jalan {
   display: flex;
-  margin-top: -20px;
   flex-direction: column;
 }
 
 .jalan-user {
+  margin-left: 20px;
+  margin-right: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -76,12 +79,14 @@
 /* CHOSOSE PAYMENT METHOD */
 
 .content-payment {
-  width: 85%;
-  min-height: 250px;
+  /* width: 85%; */
+  height: 250px;
   background-color: white;
-  margin: auto;
-  margin-bottom: 50px;
-  border-radius: 20px;
+  /* margin: 40px auto; */
+  margin-top: 20px;
+  margin-bottom: 30px;
+  
+  /* border-radius: 20px; */
 }
 
 .judul-payment-method {
@@ -100,6 +105,7 @@
 
 .top-list-payment {
   margin-top: 15px;
+  margin-left: -20px;
 }
 
 .rd-payment-method {
@@ -149,7 +155,9 @@
   border-top-right-radius: 40px;
 }
 
-.dekripsi-total {
+.deskripsi-total {
+  margin-bottom: 50px;
+  margin-top: 55px;
   display: flex;
   justify-content: center;
   font-family: "Manrope";
@@ -158,6 +166,7 @@
 
 .total-footer {
   margin-top: 35px;
+  margin-left: 20px;
 }
 
 .deskripsi-total-price {
@@ -182,18 +191,21 @@
 .nominal-deskripsi {
   margin-top: 35px;
   text-align: right;
-  margin-left: 125px;
+  margin-left: 80px;
+  margin-right: 20px;
 }
 
 .order {
   width: 200px;
   height: 30px;
-  background-color: #2fdd92;
+  background-color: #3B5BAE;
   border-radius: 10px;
   font-size: 20px;
-  font-weight: 400;
-  font-family: "Manrope";
+  font-weight: 800;
+  font-family: "Open Sans";
   font-style: normal;
+  margin-bottom: 20px;
+  color: white;
 }
 
 .btn-order {
@@ -202,8 +214,20 @@
   justify-content: center;
 }
 
+.line-address{
+  width: 85%;
+  height: 3px;
+  background-color: #3B5BAE;
+  margin: 20px auto;
+}
 
-/* TEST RADIO BUTTON */
+.line-total-price{
+  width: 80%;
+  height: 3px;
+  background-color: #3B5BAE;
+  margin-left: 45px;
+  margin-top: 10px;
+}
 
 
 
@@ -225,7 +249,7 @@
     margin-top: 110px;
   }
 
-  .dekripsi-total {
+  .deskripsi-total {
     display: flex;
     justify-content: flex-start;
     margin-left: 20px;

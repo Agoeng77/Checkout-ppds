@@ -35,11 +35,11 @@ function DaftarAlamat() {
         </div>
 
         <div className="box-list-alamat">
-          <div className="judul-header-list-alamat">Rumah Agung </div>
+          <div className="judul-header-list-alamat">Rumah Tyo </div>
           
           <div className="isi-box-list-alamat">
-            <div className="nama-alamat">Arsenius Agung M</div>
-            <div className="no-telp">087884387736</div>
+            <div className="nama-alamat">Dominikus Linestyo</div>
+            <div className="no-telp">087994386636</div>
             <div className="alamat">
               Jl. Limo No.40, RT.8/RW.10, Grogol Sel., Kec. Kby. Lama, Jakarta
               Selatan
@@ -51,10 +51,10 @@ function DaftarAlamat() {
         </div>
 
         <div className="box-list-alamat">
-          <div className="judul-header-list-alamat">Rumah Agung </div>
+          <div className="judul-header-list-alamat">Rumah Renaldi </div>
 
           <div className="isi-box-list-alamat">
-            <div className="nama-alamat">Arsenius Agung M</div>
+            <div className="nama-alamat">Renaldi Fernandi</div>
             <div className="no-telp">087884387736</div>
             <div className="alamat">
               Jl. Limo No.40, RT.8/RW.10, Grogol Sel., Kec. Kby. Lama, Jakarta
