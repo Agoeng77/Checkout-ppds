@@ -115,8 +115,15 @@
   font-style: normal;
 }
 
+.header-list{
+  display: flex;
+  margin-left: 25px;
+  height: 30px;
+  
+}
+
 .list-obat {
-  min-height: 100px;
+  min-height: 130px;
   background-color: white;
   margin-bottom: 1.5px;
 
@@ -131,7 +138,9 @@
 
 .jumlah-obat {
   color: #760000;
-  margin-left: 20px;
+  margin-left: -45px;
+  margin-top: 50px;
+  
   font-weight: bold;
   font-size: 14px;
 
@@ -144,8 +153,11 @@
 
 .box-nama-obat {
   color: black;
+  width: 120px;
   font-size: 20px;
   font-weight: bold;
+  margin: 0px;
+ 
 
   /* font-family: "Manrope";
   font-style: normal; */
@@ -163,6 +175,8 @@
 
   font-family: "Manrope";
   font-style: normal;
+  
+  
 
 }
 
@@ -234,6 +248,8 @@ input[type="checkbox"]:focus {
 
   font-family: "Manrope";
   font-style: normal;
+  margin-left: 45px;
+  margin-top: -10px;
 }
 
 .total-harga {

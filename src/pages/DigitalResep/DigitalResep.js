@@ -9,7 +9,6 @@ function DigitalResep() {
     <div className="body">
       <div className="header">
         <div className="judul-halaman">
-          
           <span className="nama-judul">Digital Resep </span>
         </div>
 
@@ -66,14 +65,17 @@ function DigitalResep() {
             />
 
             <div className="deskripsi-obat">
-              <div className="box-resep">
+              <div className="header-list">
                 <p className="box-nama-obat">Paracetamol</p>
+                <h3 className="box-harga-obat">30.000</h3>
+              </div>
+              <div className="box-resep">
                 <div className="style-cara-pakai">
                   2x 1 Tablet- Setelah Makan <br />
                   Waktu: Pagi Malam <br />
                   Masa Berlaku : 23/02/2023
                 </div>
-                <h3 className="box-harga-obat">30.000</h3>
+                {/* <h3 className="box-harga-obat">30.000</h3> */}
               </div>
             </div>
 
@@ -81,7 +83,6 @@ function DigitalResep() {
           </div>
 
           <div className="list-obat">
-
             <div className="checkbox">
               <input type="checkbox" />
             </div>
@@ -92,14 +93,17 @@ function DigitalResep() {
               className="gambar-produk"
             />
             <div className="deskripsi-obat">
-              <div className="box-resep">
+              <div className="header-list">
                 <p className="box-nama-obat">Amoxcillin</p>
+                <h3 className="box-harga-obat">30.000</h3>
+              </div>
+              <div className="box-resep">
                 <div className="style-cara-pakai">
                   2x 1 Tablet- Setelah Makan <br />
                   Waktu: Pagi Malam <br />
                   Masa Berlaku : 23/02/2023
                 </div>
-                <h3 className="box-harga-obat">30.000</h3>
+                {/* <h3 className="box-harga-obat">30.000</h3> */}
               </div>
             </div>
 
@@ -107,7 +111,6 @@ function DigitalResep() {
           </div>
 
           <div className="list-obat">
-
             <div className="checkbox">
               <input type="checkbox" />
             </div>
@@ -119,14 +122,17 @@ function DigitalResep() {
             />
 
             <div className="deskripsi-obat">
+              <div className="header-list">
+                  <p className="box-nama-obat">Amoxcillin</p>
+                  <h3 className="box-harga-obat">30.000</h3>
+              </div>
               <div className="box-resep">
-                <p className="box-nama-obat">Vitamin C</p>
                 <div className="style-cara-pakai">
                   2x 1 Tablet- Setelah Makan <br />
                   Waktu: Pagi Malam <br />
                   Masa Berlaku : 23/02/2023
                 </div>
-                <h3 className="box-harga-obat">30.000</h3>
+                {/* <h3 className="box-harga-obat">30.000</h3> */}
               </div>
             </div>
             <p className="jumlah-obat">2 Strip</p>
