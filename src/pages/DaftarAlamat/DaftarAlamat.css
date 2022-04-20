@@ -84,6 +84,17 @@
     font-style: normal;
   }
 
+  .note-alamat{
+    margin-left: 20px;
+    margin-top: 10px;
+    color: black;
+
+    font-weight: 600;
+    font-size: 15px;
+    font-family: "Manrope";
+    font-style: normal;
+  }
+
   .ubah-alamat{
     display: flex;
     justify-content: center;
@@ -93,7 +104,8 @@
     width: 200px;
     height: 30px;
 
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 
     background-color: #3B5BAE;
     border-radius: 10px;

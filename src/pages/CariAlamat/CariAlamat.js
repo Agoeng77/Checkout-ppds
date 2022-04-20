@@ -18,7 +18,7 @@ function CariAlamat() {
           <span className="nama-judul">Cari Alamat</span>
         </div>
 
-        <div className="header-alamat">
+        {/* <div className="header-alamat">
           <div className="search-alamat">
             <div className="icon-search">
               <i class="fa-solid fa-magnifying-glass"></i>
@@ -27,6 +27,18 @@ function CariAlamat() {
               Tulis nama jalan/alamat/gedung/perumahan
             </span>
           </div>
+        </div> */}
+
+        <div className="search-alamat">
+          <div className="box-icon">
+            <div className="icon-search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+          </div>
+          <input
+            className="input-search-alamat"
+            placeholder="Tulis Nama jalan/Alamat/Gedung/Perumahan"
+          />
         </div>
 
         <div className="pinpoint">

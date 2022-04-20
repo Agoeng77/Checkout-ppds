@@ -5,7 +5,7 @@ import Checkout from "./pages/Checkout/Checkout";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CariAlamat from "./pages/CariAlamat/CariAlamat";
 import DaftarAlamat from "./pages/DaftarAlamat/DaftarAlamat";
-import MapsPinpoint from "./MapsPinpoint/MapsPinpoint";
+import MapsPinpoint from "./pages/MapsPinpoint/MapsPinpoint";
 
 function App() {
   return (

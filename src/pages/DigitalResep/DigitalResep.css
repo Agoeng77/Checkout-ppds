@@ -21,6 +21,14 @@
   margin-top: -100px;
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
+
+  
+}
+
+.overflow-obat{
+  height: 400px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* COMPONENTS */
@@ -302,19 +310,11 @@ input[type="checkbox"]:focus {
   font-style: normal;
 }
 
-.gbr-trash {
-  width: 20px;
-  height: 25px;
-}
-
-.btn-delete {
-  width: 30px;
-  height: 30px;
-  margin-left: 10px;
-}
-
 .style-or {
   font-size: 15px;
+  font-family: "Manrope";
+  font-weight: bold;
+
 }
 
 @media only screen and (min-width: 768px) and (min-height: 1024px) {

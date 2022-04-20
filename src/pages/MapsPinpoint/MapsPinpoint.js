@@ -3,8 +3,6 @@ import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { useNavigate } from "react-router-dom";
 import styles from "./MapsPinpoint.css";
 
-
-
 function MapsPinpoint() {
   const [currentPosition, setCurrentPosition] = useState({});
   let navigate = useNavigate();
@@ -32,17 +30,15 @@ function MapsPinpoint() {
   };
 
   const mapStyles = {
-    height: "70vh",
+    height: "93vh",
     width: "100%",
-    
-    
+    margin: "25px auto",
   };
 
   return (
     <div className="body">
       <div className="container-alamat">
-
-      <div className="judul-halaman">
+        <div className="judul-halaman">
           <iconbutton
             className="kembali"
             onClick={() => navigate("/cari-alamat")}
@@ -52,21 +48,21 @@ function MapsPinpoint() {
           <span className="nama-judul">Pin Point</span>
         </div>
         <div className="maps">
-        <LoadScript googleMapsApiKey="AIzaSyB6Jb0JULqpai24UL-zql2BW7UeG0TAGGE">
-          <GoogleMap
-            mapContainerStyle={mapStyles}
-            zoom={15}
-            center={currentPosition}
-          >
-            {currentPosition.lat ? (
-              <Marker
-                position={currentPosition}
-                onDrag={(e) => onMarkerDragEnd(e)}
-                draggable={true}
-              />
-            ) : null}
-          </GoogleMap>
-        </LoadScript>
+          <LoadScript googleMapsApiKey="AIzaSyB6Jb0JULqpai24UL-zql2BW7UeG0TAGGE">
+            <GoogleMap
+              mapContainerStyle={mapStyles}
+              zoom={15}
+              center={currentPosition}
+            >
+              {currentPosition.lat ? (
+                <Marker
+                  position={currentPosition}
+                  onDrag={(e) => onMarkerDragEnd(e)}
+                  draggable={true}
+                />
+              ) : null}
+            </GoogleMap>
+          </LoadScript>
         </div>
       </div>
     </div>

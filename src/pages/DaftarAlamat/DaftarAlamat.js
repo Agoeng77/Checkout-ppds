@@ -1,9 +1,36 @@
-import React from "react";
+import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./DaftarAlamat.css";
 
 function DaftarAlamat() {
   let navigate = useNavigate();
+
+  const [daftarAlamat, setDaftarAlamat] = useState([
+    {
+      judulAlamat: "Rumah Agung",
+      namaPenerima: "Arsenius Agung M",
+      noTelp: "087884398725",
+      alamat:
+        " Jl. Limo No.40, RT.8/RW.10, Grogol Sel., Kec. Kby. Lama, Jakarta Selatan",
+      note: "Rumah Pagar Hijau",
+    },
+    {
+      judulAlamat: "Rumah Dominikus",
+      namaPenerima: "Dominikus Linestyo",
+      noTelp: "087884398725",
+      alamat:
+        " Jl. Limo No.40, RT.8/RW.10, Grogol Sel., Kec. Kby. Lama, Jakarta Selatan",
+      note: "Rumah Pagar Hijau",
+    },
+    {
+      judulAlamat: "Rumah Ryo",
+      namaPenerima: "Ryo Gunawan",
+      noTelp: "087884398725",
+      alamat:
+        " Jl. Limo No.40, RT.8/RW.10, Grogol Sel., Kec. Kby. Lama, Jakarta Selatan",
+      note: "Rumah Pagar Hijau",
+    },
+  ]);
 
   return (
     <div className="body">
@@ -13,58 +40,32 @@ function DaftarAlamat() {
             <i className="fa-solid fa-arrow-left"></i>
           </iconbutton>
           <span className="nama-judul">Daftar Alamat</span>
-          <iconbutton className="tambah-alamat" onClick={() => navigate("/cari-alamat")}>
-              Tambah Alamat
+          <iconbutton
+            className="tambah-alamat"
+            onClick={() => navigate("/cari-alamat")}
+          >
+            Tambah Alamat
           </iconbutton>
         </div>
 
-        <div className="box-list-alamat">
-          <div className="judul-header-list-alamat">Rumah Agung </div>
-          
-          <div className="isi-box-list-alamat">
-            <div className="nama-alamat">Arsenius Agung M</div>
-            <div className="no-telp">087884387736</div>
-            <div className="alamat">
-              Jl. Limo No.40, RT.8/RW.10, Grogol Sel., Kec. Kby. Lama, Jakarta
-              Selatan
-            </div>
-            <div className="ubah-alamat">
-              <button className="btn-ubah-alamat">Ubah Alamat</button>
-            </div>
-          </div>
-        </div>
+        {daftarAlamat &&
+          daftarAlamat.map((item) => (
+            <div className="box-list-alamat">
+              <div className="judul-header-list-alamat">
+                {item.judulAlamat}{" "}
+              </div>
 
-        <div className="box-list-alamat">
-          <div className="judul-header-list-alamat">Rumah Tyo </div>
-          
-          <div className="isi-box-list-alamat">
-            <div className="nama-alamat">Dominikus Linestyo</div>
-            <div className="no-telp">087994386636</div>
-            <div className="alamat">
-              Jl. Limo No.40, RT.8/RW.10, Grogol Sel., Kec. Kby. Lama, Jakarta
-              Selatan
+              <div className="isi-box-list-alamat">
+                <div className="nama-alamat">{item.namaPenerima}</div>
+                <div className="no-telp">{item.noTelp}</div>
+                <div className="alamat">{item.alamat}</div>
+                <div className="note-alamat">{item.note}</div>
+                <div className="ubah-alamat">
+                  <button className="btn-ubah-alamat">Ubah Alamat</button>
+                </div>
+              </div>
             </div>
-            <div className="ubah-alamat">
-              <button className="btn-ubah-alamat">Ubah Alamat</button>
-            </div>
-          </div>
-        </div>
-
-        <div className="box-list-alamat">
-          <div className="judul-header-list-alamat">Rumah Renaldi </div>
-
-          <div className="isi-box-list-alamat">
-            <div className="nama-alamat">Renaldi Fernandi</div>
-            <div className="no-telp">087884387736</div>
-            <div className="alamat">
-              Jl. Limo No.40, RT.8/RW.10, Grogol Sel., Kec. Kby. Lama, Jakarta
-              Selatan
-            </div>
-            <div className="ubah-alamat">
-              <button className="btn-ubah-alamat">Ubah Alamat</button>
-            </div>
-          </div>
-        </div>
+          ))}
 
         <div className="pilih-alamat">
           <button className="btn-pilih-alamat">Pilih Alamat</button>

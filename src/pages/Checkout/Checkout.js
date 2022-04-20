@@ -1,9 +1,20 @@
-import React from "react";
+import { React, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Checkout.css";
 
 function Checkout() {
   let navigate = useNavigate();
+
+  const [paymentMethod, setpaymentMethod] = useState([
+    { 
+      paymentMethod: "Bank Transfer",
+      totalBayar:100000,
+    },
+    { 
+      paymentMethod: "Bank Transfer",
+      totalBayar:100000,
+    },
+  ]);
 
   return (
     <div className="body-payment">
@@ -37,15 +48,6 @@ function Checkout() {
             </div>
           </div>
 
-          {/* <div className="note">
-            Add a note
-            <i className="fa-solid fa-notes"></i>
-            <input
-              className="input-note"
-              placeholder="Example : Near the Century Building, ect"
-            />
-          </div> */}
-
           <div className="line-address"></div>
 
           <div className="content-payment">
@@ -55,6 +57,9 @@ function Checkout() {
               </span>
 
               <div className="top-list-payment">
+
+              {paymentMethod &&
+              paymentMethod.map((item) => (
                 <div className="list-payment">
                   <div className="rd-payment-method">
                     <input
@@ -72,17 +77,19 @@ function Checkout() {
 
                     <div className="harga-option">
                       <label htmlFor="option" className="rd-label">
-                        OVO
+                        {item.paymentMethod}
                       </label>
                       <br />
                       <label htmlFor="option" className="rd-harga">
-                        Rp.100.000
+                        Rp.{item.totalBayar}
                       </label>
                     </div>
                   </div>
                 </div>
+                ))}
+                <div className="line-total-price"></div>
 
-                <div className="list-payment">
+                {/* <div className="list-payment">
                   <div className="rd-payment-method">
                     <input
                       className="rd-option"
@@ -160,15 +167,14 @@ function Checkout() {
                         Rp.100.000
                       </label>
                     </div>
-                  </div>
+                  </div> 
 
                   <div className="line-total-price"></div>
-                </div>
+                </div>*/}
               </div>
             </div>
           </div>
-
-          {/* <div className="footer-order"> */}
+          
           <div className="deskripsi-total">
             <div className="total-footer">
               <div className="total-price"> Total Price</div> <br />
@@ -200,7 +206,6 @@ function Checkout() {
           <div className="btn-order">
             <button className="order">Order</button>
           </div>
-          {/* </div> */}
         </div>
       </div>
     </div>

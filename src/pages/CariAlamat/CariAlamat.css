@@ -29,10 +29,43 @@
 .search-alamat{
   display: flex;
   justify-content: center;
-
   
 }
 
+/* INPUT ALAMAT */
+
+.input-search-alamat{
+
+  width: 300px;
+  min-height: 40px;
+  background-color: white;
+    
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 14px;
+  
+}
+
+.box-icon{
+  display: flex;
+  justify-content: center;
+  
+  align-items: center;
+
+  width: 30px;
+  min-height: 40px;
+  background-color: white;
+    
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  
+  
+}
+/* INPUT ALAMAT */
 
 
 .icon-location{

@@ -1,9 +1,156 @@
-import React from "react";
+import { React, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import styles from "./DigitalResep.css";
+import GambarAmoxicilin from "./amoxcillin.png";
+import GambarParacetamol from "./download.jpeg";
+import GambarVitaminC from "./vitaminC.png";
 
 function DigitalResep() {
   let navigate = useNavigate();
+
+  var [namaDokter, setNamaDokter] = useState("");
+  var [rumahSakit, setRumahSakit] = useState("");
+  var [spesialis, setSpesialis] = useState("");
+
+  var [namaPasien, setNamaPasien] = useState("");
+  var [umurPasien, setUmurPasien] = useState("");
+  var [genderPasien, setGenderPasien] = useState("");
+
+  var [namaObat, setNamaObat] = useState("");
+  var [gambarObat, setGambarObat] = useState("");
+  var [hargaObat, setHargaObat] = useState("");
+  var [caraPemakaian, setCaraPemakaian] = useState("");
+  var [waktuPemakaian, setWaktuPemakaian] = useState("");
+  var [expDate, setExpDate] = useState("");
+  var [jumlahObat, setJumlahObat] = useState("");
+
+  var [totalHarga, setTotalHarga] = useState("");
+
+  const [resepdata, setresepdata] = useState([
+    {
+      namaObat: "Paracetamol",
+      gambarObat: GambarParacetamol,
+      harga: 30000,
+      caraPemakaian: " 2x 1 Tablet- Setelah Makan",
+      waktuPemakaian: "Pagi Malam",
+      expDate: "23/02/2023",
+      jumlahObat: "2strip",
+    },
+    {
+      namaObat: "Amoxilin",
+      gambarObat: GambarAmoxicilin,
+      harga: 30000,
+      caraPemakaian: " 2x 1 Tablet- Setelah Makan",
+      waktuPemakaian: "Pagi Malam",
+      expDate: "23/02/2023",
+      jumlahObat: "2 strip",
+    },
+    {
+      namaObat: "Vitamin C",
+      gambarObat: GambarVitaminC,
+      harga: 30000,
+      caraPemakaian: " 2x 1 Tablet- Setelah Makan",
+      waktuPemakaian: "Pagi Malam",
+      expDate: "23/02/2023",
+      jumlahObat: "2 strip",
+    },
+    {
+      namaObat: "Amoxilin",
+      gambarObat: GambarAmoxicilin,
+      harga: 30000,
+      caraPemakaian: " 2x 1 Tablet- Setelah Makan",
+      waktuPemakaian: "Pagi Malam",
+      expDate: "23/02/2023",
+      jumlahObat: "2 strip",
+    },
+    {
+      namaObat: "Vitamin C",
+      gambarObat: GambarVitaminC,
+      harga: 30000,
+      caraPemakaian: " 2x 1 Tablet- Setelah Makan",
+      waktuPemakaian: "Pagi Malam",
+      expDate: "23/02/2023",
+      jumlahObat: "2strip",
+    },
+  ]);
+
+  useEffect(() => {
+    var url = ``;
+
+    axios.get(url).then((response) => {
+      console.log("resp", response);
+
+      if (response.data.data !== "") {
+        setNamaDokter(response.data.data.nama_dokter);
+        setRumahSakit(response.data.data.rumah_sakit);
+        setSpesialis(response.data.data.spesialis);
+      } else {
+        setNamaDokter("");
+        setRumahSakit("");
+        setSpesialis("");
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    var url = ``;
+
+    axios.get(url).then((response) => {
+      console.log("resp", response);
+
+      if (response.data.data !== "") {
+        setNamaPasien(response.data.data.nama_pasien);
+        setUmurPasien(response.data.data.umur_pasien);
+        setGenderPasien(response.data.data.gender_pasien);
+      } else {
+        setNamaPasien("");
+        setUmurPasien("");
+        setGenderPasien("");
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    var url = ``;
+
+    axios.get(url).then((response) => {
+      console.log("resp", response);
+
+      if (response.data.data !== "") {
+        setresepdata(response.data.data);
+        // setNamaObat(response.data.data.nama_dokter);
+        // setGambarObat(response.data.data.gambar_obat);
+        // setCaraPemakaian(response.data.data.cara_pemakaian);
+        // setWaktuPemakaian(response.data.data.waktu_pemakaian);
+        // setExpDate(response.data.data.exp_date);
+        // setHargaObat(response.data.data.harga_obat);
+        // setJumlahObat(response.data.data.jumlah_obat);
+      } else {
+        // setNamaObat("");
+        // setGambarObat("");
+        // setCaraPemakaian("");
+        // setWaktuPemakaian("");
+        // setExpDate("");
+        // setHargaObat("");
+        // setJumlahObat("");
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    var url = ``;
+
+    axios.get(url).then((response) => {
+      console.log("resp", response);
+
+      if (response.data.data !== "") {
+        setTotalHarga(response.data.data.total_harga);
+      } else {
+        setTotalHarga("");
+      }
+    });
+  }, []);
 
   return (
     <div className="body">
@@ -11,16 +158,15 @@ function DigitalResep() {
         <div className="judul-halaman">
           <span className="nama-judul">Digital Resep </span>
         </div>
-
         <div className="content-header">
           <img src="assets/img/profile.png" alt="" className="profile-dokter" />
           <div className="deskripsi-dokter">
-            Dr.Dominikus Linestyo
+            {namaDokter} Dominikus Vieri Linestyo
             <br />
             <div className="deskripsi-rs-ahli">
-              Rs. Siloam
+              {rumahSakit} Rs. Siloam
               <br />
-              THT, Spesialis anak
+              {spesialis} THT, Spesialis anak
               <br />
             </div>
           </div>
@@ -40,106 +186,47 @@ function DigitalResep() {
               </div>
               <div className="nama-pasien">
                 <div className="style-nama-pasien">
-                  Arsenius Agung M <br />
+                  {namaPasien} Arsenius Agung M <br />
                 </div>
-                20 <br />
-                Pria
+                {umurPasien} 20 <br />
+                {genderPasien} Pria
               </div>
             </div>
           </div>
 
-          <div className="list-obat">
-            {/* <iconbutton className="btn-delete">
-            <img src="assets/img/trash1.png" alt="" className="gbr-trash" />
-          </iconbutton> */}
+          <div className="overflow-obat">
+            {resepdata &&
+              resepdata.map((item) => (
+                <div className="list-obat">
+                  <div className="checkbox">
+                    <input type="checkbox" />
+                    <span className="check"></span>
+                  </div>
 
-            <div className="checkbox">
-              <input type="checkbox" />
-              <span className="check"></span>
-            </div>
+                  <img src={item.gambarObat} alt="" className="gambar-produk" />
 
-            <img
-              src="assets/img/download.jpeg"
-              alt=""
-              className="gambar-produk"
-            />
+                  <div className="deskripsi-obat">
+                    <div className="header-list">
+                      <p className="box-nama-obat">{item.namaObat}</p>
+                      <h3 className="box-harga-obat">{item.harga}</h3>
+                    </div>
+                    <div className="box-resep">
+                      <div className="style-cara-pakai">
+                        {item.caraPemakaian}
+                        <br />
+                        Waktu: {item.waktuPemakaian} <br />
+                        Masa Berlaku : {item.expDate}
+                      </div>
+                    </div>
+                  </div>
 
-            <div className="deskripsi-obat">
-              <div className="header-list">
-                <p className="box-nama-obat">Paracetamol</p>
-                <h3 className="box-harga-obat">30.000</h3>
-              </div>
-              <div className="box-resep">
-                <div className="style-cara-pakai">
-                  2x 1 Tablet- Setelah Makan <br />
-                  Waktu: Pagi Malam <br />
-                  Masa Berlaku : 23/02/2023
+                  <p className="jumlah-obat">{item.jumlahObat}</p>
                 </div>
-                {/* <h3 className="box-harga-obat">30.000</h3> */}
-              </div>
-            </div>
-
-            <p className="jumlah-obat">2 Strip</p>
-          </div>
-
-          <div className="list-obat">
-            <div className="checkbox">
-              <input type="checkbox" />
-            </div>
-
-            <img
-              src="assets/img/amoxcillin.png"
-              alt=""
-              className="gambar-produk"
-            />
-            <div className="deskripsi-obat">
-              <div className="header-list">
-                <p className="box-nama-obat">Amoxcillin</p>
-                <h3 className="box-harga-obat">30.000</h3>
-              </div>
-              <div className="box-resep">
-                <div className="style-cara-pakai">
-                  2x 1 Tablet- Setelah Makan <br />
-                  Waktu: Pagi Malam <br />
-                  Masa Berlaku : 23/02/2023
-                </div>
-                {/* <h3 className="box-harga-obat">30.000</h3> */}
-              </div>
-            </div>
-
-            <p className="jumlah-obat">2 Strip</p>
-          </div>
-
-          <div className="list-obat">
-            <div className="checkbox">
-              <input type="checkbox" />
-            </div>
-
-            <img
-              src="assets/img/vitaminC.png"
-              alt=""
-              className="gambar-produk"
-            />
-
-            <div className="deskripsi-obat">
-              <div className="header-list">
-                  <p className="box-nama-obat">Vitamin C</p>
-                  <h3 className="box-harga-obat">30.000</h3>
-              </div>
-              <div className="box-resep">
-                <div className="style-cara-pakai">
-                  2x 1 Tablet- Setelah Makan <br />
-                  Waktu: Pagi Malam <br />
-                  Masa Berlaku : 23/02/2023
-                </div>
-                {/* <h3 className="box-harga-obat">30.000</h3> */}
-              </div>
-            </div>
-            <p className="jumlah-obat">2 Strip</p>
+              ))}
           </div>
 
           <div className="total-harga">
-            Total Harga
+            {totalHarga} Total Harga
             <span className="nominal-total">Rp.90.000</span>
           </div>
 
