@@ -1,9 +1,18 @@
-import React from "react";
+import {React, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./CariAlamat.css";
 
 function CariAlamat() {
   let navigate = useNavigate();
+
+  var [searchAlamat, setSearchAlamat] = useState("");
+
+  var [namaPenerima, setNamaPenerima] = useState("");
+  var [noHp, setNoHp] = useState("");
+  var [labelAlamat, setLabelAlamat] = useState("");
+  var [kotaKecamatan, setKotaKecamatan] = useState("");
+  var [alamatLengkap, setAlamatLengkap] = useState("");
+  var [noteAlamat, setNoteAlamat] = useState("");
 
   return (
     <div className="body">
@@ -43,7 +52,7 @@ function CariAlamat() {
 
         <div className="pinpoint">
           <div className="location">
-            <iconbutton className="icon-location" onClick="#">
+            <iconbutton className="icon-location" onClick={() => navigate("/maps-pinpoint")}>
               <i class="fa-solid fa-location-dot"></i>
             </iconbutton>
             <iconbutton

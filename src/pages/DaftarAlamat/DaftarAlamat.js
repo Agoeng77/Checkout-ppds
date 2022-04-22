@@ -1,5 +1,6 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import styles from "./DaftarAlamat.css";
 
 function DaftarAlamat() {
@@ -8,7 +9,7 @@ function DaftarAlamat() {
   const [daftarAlamat, setDaftarAlamat] = useState([
     {
       judulAlamat: "Rumah Agung",
-      namaPenerima: "Arsenius Agung M",
+      namaPenerima: "Arsenius Agung ",
       noTelp: "087884398725",
       alamat:
         " Jl. Limo No.40, RT.8/RW.10, Grogol Sel., Kec. Kby. Lama, Jakarta Selatan",
@@ -31,6 +32,19 @@ function DaftarAlamat() {
       note: "Rumah Pagar Hijau",
     },
   ]);
+
+  useEffect(() => {
+    var url = ``;
+
+    axios.get(url).then((response) => {
+      console.log("resp", response);
+
+      if (response.data.data !== "") {
+        setDaftarAlamat(response.data.data);
+      } else {
+      }
+    });
+  }, []);
 
   return (
     <div className="body">

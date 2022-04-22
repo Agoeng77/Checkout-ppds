@@ -17,13 +17,6 @@ function DigitalResep() {
   var [umurPasien, setUmurPasien] = useState("");
   var [genderPasien, setGenderPasien] = useState("");
 
-  var [namaObat, setNamaObat] = useState("");
-  var [gambarObat, setGambarObat] = useState("");
-  var [hargaObat, setHargaObat] = useState("");
-  var [caraPemakaian, setCaraPemakaian] = useState("");
-  var [waktuPemakaian, setWaktuPemakaian] = useState("");
-  var [expDate, setExpDate] = useState("");
-  var [jumlahObat, setJumlahObat] = useState("");
 
   var [totalHarga, setTotalHarga] = useState("");
 
@@ -119,21 +112,9 @@ function DigitalResep() {
 
       if (response.data.data !== "") {
         setresepdata(response.data.data);
-        // setNamaObat(response.data.data.nama_dokter);
-        // setGambarObat(response.data.data.gambar_obat);
-        // setCaraPemakaian(response.data.data.cara_pemakaian);
-        // setWaktuPemakaian(response.data.data.waktu_pemakaian);
-        // setExpDate(response.data.data.exp_date);
-        // setHargaObat(response.data.data.harga_obat);
-        // setJumlahObat(response.data.data.jumlah_obat);
+        
       } else {
-        // setNamaObat("");
-        // setGambarObat("");
-        // setCaraPemakaian("");
-        // setWaktuPemakaian("");
-        // setExpDate("");
-        // setHargaObat("");
-        // setJumlahObat("");
+        
       }
     });
   }, []);
