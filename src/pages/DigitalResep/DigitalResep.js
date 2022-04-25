@@ -13,125 +13,95 @@ function DigitalResep() {
   var [rumahSakit, setRumahSakit] = useState("");
   var [spesialis, setSpesialis] = useState("");
 
-  var [namaPasien, setNamaPasien] = useState("");
-  var [umurPasien, setUmurPasien] = useState("");
-  var [genderPasien, setGenderPasien] = useState("");
-
+  var [dataPasien, setDataPasien] = useState([]);
 
   var [totalHarga, setTotalHarga] = useState("");
 
-  const [resepdata, setresepdata] = useState([
-    {
-      namaObat: "Paracetamol",
-      gambarObat: GambarParacetamol,
-      harga: 30000,
-      caraPemakaian: " 2x 1 Tablet- Setelah Makan",
-      waktuPemakaian: "Pagi Malam",
-      expDate: "23/02/2023",
-      jumlahObat: "2strip",
-    },
-    {
-      namaObat: "Amoxilin",
-      gambarObat: GambarAmoxicilin,
-      harga: 30000,
-      caraPemakaian: " 2x 1 Tablet- Setelah Makan",
-      waktuPemakaian: "Pagi Malam",
-      expDate: "23/02/2023",
-      jumlahObat: "2 strip",
-    },
-    {
-      namaObat: "Vitamin C",
-      gambarObat: GambarVitaminC,
-      harga: 30000,
-      caraPemakaian: " 2x 1 Tablet- Setelah Makan",
-      waktuPemakaian: "Pagi Malam",
-      expDate: "23/02/2023",
-      jumlahObat: "2 strip",
-    },
-    {
-      namaObat: "Amoxilin",
-      gambarObat: GambarAmoxicilin,
-      harga: 30000,
-      caraPemakaian: " 2x 1 Tablet- Setelah Makan",
-      waktuPemakaian: "Pagi Malam",
-      expDate: "23/02/2023",
-      jumlahObat: "2 strip",
-    },
-    {
-      namaObat: "Vitamin C",
-      gambarObat: GambarVitaminC,
-      harga: 30000,
-      caraPemakaian: " 2x 1 Tablet- Setelah Makan",
-      waktuPemakaian: "Pagi Malam",
-      expDate: "23/02/2023",
-      jumlahObat: "2strip",
-    },
-  ]);
+  const [resepdataHeader, setResepDataHeader] = useState([]);
+  const [resepDataDetail, setResepDataDetail] = useState([]);
+  const [detailCheckout, setDetailCheckout] = useState([]);
+
+  // useEffect(() => {
+  //   var url = ``;
+
+  //   axios.get(url).then((response) => {
+  //     console.log("resp", response);
+
+  //     if (response.data.data !== "") {
+  //       setNamaDokter(response.data.data.nama_dokter);
+  //       setRumahSakit(response.data.data.rumah_sakit);
+  //       setSpesialis(response.data.data.spesialis);
+  //     } else {
+  //       setNamaDokter("");
+  //       setRumahSakit("");
+  //       setSpesialis("");
+  //     }
+  //   });
+  // }, []);
 
   useEffect(() => {
-    var url = ``;
+    if (resepdataHeader.length !== 0) {
+      var url = `https://staging-api.cfu.pharmalink.id/ppds/prescription/patient?id=${resepdataHeader.PatientID}`;
+
+      axios
+        .get(url)
+        .then((response) => {
+          console.log("resp", response);
+
+          if (response.data.data !== null || response.data.data !== undefined) {
+            setDataPasien([response.data.data]);
+          } else {
+            setDataPasien([]);
+          }
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    }
+  }, [resepdataHeader]);
+
+  useEffect(() => {
+    var url = `https://staging-api.cfu.pharmalink.id/ppds/prescription/prescription?id=1`;
 
     axios.get(url).then((response) => {
       console.log("resp", response);
 
-      if (response.data.data !== "") {
-        setNamaDokter(response.data.data.nama_dokter);
-        setRumahSakit(response.data.data.rumah_sakit);
-        setSpesialis(response.data.data.spesialis);
-      } else {
-        setNamaDokter("");
-        setRumahSakit("");
-        setSpesialis("");
+      if (response.data.data !== undefined || response.data.data !== null) {
+        setResepDataHeader(response.data.data);
+        setResepDataDetail(response.data.data.detail);
+        setDetailCheckout(response.data.data.detail);
       }
     });
   }, []);
 
-  useEffect(() => {
-    var url = ``;
+  // useEffect(() => {
+  //   var url = ``;
 
-    axios.get(url).then((response) => {
-      console.log("resp", response);
+  //   axios.get(url).then((response) => {
+  //     console.log("resp", response);
 
-      if (response.data.data !== "") {
-        setNamaPasien(response.data.data.nama_pasien);
-        setUmurPasien(response.data.data.umur_pasien);
-        setGenderPasien(response.data.data.gender_pasien);
-      } else {
-        setNamaPasien("");
-        setUmurPasien("");
-        setGenderPasien("");
-      }
-    });
-  }, []);
+  //     if (response.data.data !== "") {
+  //       setTotalHarga(response.data.data.total_harga);
+  //     } else {
+  //       setTotalHarga("");
+  //     }
+  //   });
+  // }, []);
 
-  useEffect(() => {
-    var url = ``;
-
-    axios.get(url).then((response) => {
-      console.log("resp", response);
-
-      if (response.data.data !== "") {
-        setresepdata(response.data.data);
-        
-      } else {
-        
-      }
-    });
-  }, []);
-
-  useEffect(() => {
-    var url = ``;
-
-    axios.get(url).then((response) => {
-      console.log("resp", response);
-
-      if (response.data.data !== "") {
-        setTotalHarga(response.data.data.total_harga);
-      } else {
-        setTotalHarga("");
-      }
-    });
-  }, []);
+  function handleCheckDetail(data) {
+    var tempArr = [...detailCheckout];
+    if (tempArr.includes(data)) {
+      var filteredArr = tempArr.filter(
+        (item) => item.ProductID !== data.ProductID
+      );
+      console.log("masuk if", filteredArr);
+      setDetailCheckout(filteredArr);
+    } else {
+      tempArr.push(data);
+      console.log("masuk else", tempArr); 
+      setDetailCheckout(tempArr);
+    }
+  }
 
   return (
     <div className="body">
@@ -162,46 +132,68 @@ function DigitalResep() {
                 <div className="style-nama-pasien">
                   Nama pasien <br />
                 </div>
-                Umur <br />
-                Gender
+                Tanggal Lahir <br />
+                Jenis Kelamin
+                <br />
+                Berat
               </div>
-              <div className="nama-pasien">
-                <div className="style-nama-pasien">
-                  {namaPasien} Arsenius Agung M <br />
-                </div>
-                {umurPasien} 20 <br />
-                {genderPasien} Pria
-              </div>
+              {dataPasien &&
+                dataPasien.map((item) => (
+                  <div className="nama-pasien">
+                    <div className="style-nama-pasien">
+                      {item.PatientName}
+                      <br />
+                    </div>
+                    {item.PatientDOB}
+                    <br />
+                    {item.PatientGender}
+                    <br />
+                    {item.Berat} Kg
+                  </div>
+                ))}
             </div>
           </div>
 
           <div className="overflow-obat">
-            {resepdata &&
-              resepdata.map((item) => (
+            {resepDataDetail &&
+              resepDataDetail.map((item) => (
                 <div className="list-obat">
                   <div className="checkbox">
-                    <input type="checkbox" />
+                    <input
+                      type="checkbox"
+                      value={item}
+                      checked={detailCheckout.includes(item)}
+                      onChange={() => handleCheckDetail(item)}
+                    />
                     <span className="check"></span>
                   </div>
 
-                  <img src={item.gambarObat} alt="" className="gambar-produk" />
+                  <img
+                    src={GambarAmoxicilin}
+                    alt=""
+                    className="gambar-produk"
+                  />
 
                   <div className="deskripsi-obat">
                     <div className="header-list">
-                      <p className="box-nama-obat">{item.namaObat}</p>
-                      <h3 className="box-harga-obat">{item.harga}</h3>
+                      <p className="box-nama-obat">{item.ProductID}</p>
+                      <h3 className="box-harga-obat">
+                        Rp. {item.SaleUnit * item.QuantityOrder}
+                      </h3>
                     </div>
                     <div className="box-resep">
                       <div className="style-cara-pakai">
-                        {item.caraPemakaian}
+                        {item.QuantityUsePerDay} per Hari Total
                         <br />
-                        Waktu: {item.waktuPemakaian} <br />
+                        {item.GivingQuantity} Tablet
+                        <br />
+                        Waktu: {item.TimeToUse} <br />
                         Masa Berlaku : {item.expDate}
                       </div>
                     </div>
                   </div>
 
-                  <p className="jumlah-obat">{item.jumlahObat}</p>
+                  <p className="jumlah-obat">{item.QuantityOrder}</p>
                 </div>
               ))}
           </div>
@@ -214,7 +206,14 @@ function DigitalResep() {
           <div className="download-checkout">
             <button className="dowload-pdf">Download PDF</button>
             <div className="style-or">Or</div>
-            <button onClick={() => navigate("/checkout")} className="checkout">
+            <button
+              onClick={() =>
+                navigate("/checkout", {
+                  state: detailCheckout,
+                })
+              }
+              className="checkout"
+            >
               Checkout
             </button>
           </div>

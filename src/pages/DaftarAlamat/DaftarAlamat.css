@@ -1,142 +1,138 @@
 .body {
-    background-color: #f0f0f0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  background-color: #f0f0f0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  }
-  
-  .container-alamat {
-    min-height: 860px;
-    background-color: #3B5BAE;
-    width: 395px;
-  }
+.container-alamat {
+  min-height: 860px;
+  background-color: #3b5bae;
+  width: 395px;
+}
 
-  .tambah-alamat{
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 10px;
+.tambah-alamat {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
 
-    font-size: 15px;
-    font-weight: 400;
-    font-family: "Manrope";
-    font-style: normal;
-    color: white;
-  }
+  font-size: 15px;
+  font-weight: 400;
+  font-family: "Manrope";
+  font-style: normal;
+  color: white;
+}
 
-  .box-list-alamat{
-    width: 85%;
-    min-height: 220px;
-    background-color: white;
-    border-radius: 20px;
+.box-list-alamat {
+  width: 85%;
+  min-height: 220px;
+  background-color: white;
+  border-radius: 20px;
 
-    margin: auto;
-    margin-top: 20px;
-  }
+  margin: auto;
+  margin-top: 20px;
+} 
 
-  .header-box-list-alamat{
-    margin-top: 0px;
-  }
+.header-box-list-alamat {
+  margin-top: 0px;
+}
 
-  .judul-header-list-alamat{
-    margin-left: 20px;
-    padding-top: 10px;
-    
-    font-weight: 800;
-    color: black;
-    font-size: 15px;
-    font-family: "Manrope";
-    font-style: normal;   
-  }
+.judul-header-list-alamat {
+  margin-left: 20px;
+  padding-top: 10px;
 
-  .nama-alamat{
-    margin-left: 20px;
-    margin-top: 20px;
-    
-    color: black;
+  font-weight: 800;
+  color: black;
+  font-size: 15px;
+  font-family: "Manrope";
+  font-style: normal;
+}
 
-    font-weight: 600;
-    font-size: 18px;
-    font-family: "Manrope";
-    font-style: normal; 
-  }
+.nama-alamat {
+  margin-left: 20px;
+  margin-top: 20px;
 
-  .no-telp{
-    margin-left: 20px;
-    margin-top: 10px;
-    color: black;
+  color: black;
 
-    font-weight: 600;
-    font-size: 15px;
-    font-family: "Manrope";
-    font-style: normal; 
-  }
+  font-weight: 600;
+  font-size: 18px;
+  font-family: "Manrope";
+  font-style: normal;
+}
 
-  .alamat{
-    margin-left: 20px;
-    margin-top: 10px;
-    color: black;
+.no-telp {
+  margin-left: 20px;
+  margin-top: 10px;
+  color: black;
 
-    font-weight: 600;
-    font-size: 15px;
-    font-family: "Manrope";
-    font-style: normal;
-  }
+  font-weight: 600;
+  font-size: 15px;
+  font-family: "Manrope";
+  font-style: normal;
+}
 
-  .note-alamat{
-    margin-left: 20px;
-    margin-top: 10px;
-    color: black;
+.alamat {
+  margin-left: 20px;
+  margin-top: 10px;
+  color: black;
 
-    font-weight: 600;
-    font-size: 15px;
-    font-family: "Manrope";
-    font-style: normal;
-  }
+  font-weight: 600;
+  font-size: 15px;
+  font-family: "Manrope";
+  font-style: normal;
+}
 
-  .ubah-alamat{
-    display: flex;
-    justify-content: center;
-  }
+.note-alamat {
+  margin-left: 20px;
+  margin-top: 10px;
+  color: black;
 
-  .btn-ubah-alamat{
-    width: 200px;
-    height: 30px;
+  font-weight: 600;
+  font-size: 15px;
+  font-family: "Manrope";
+  font-style: normal;
+}
 
-    margin-top: 10px;
-    margin-bottom: 10px;
+.ubah-alamat {
+  display: flex;
+  justify-content: center;
+}
 
-    background-color: #3B5BAE;
-    border-radius: 10px;
-    
-    font-weight: bold;
-    color: white;
-    font-size: 18px;
-    font-family:"Open Sans";
-    font-style: normal;
-  }
-  
-  .pilih-alamat{
-    display: flex;
-    justify-content: center;
-  }
+.btn-ubah-alamat {
+  width: 200px;
+  height: 30px;
 
-  .btn-pilih-alamat{
-    width: 360px;
-    height: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 
-    margin-top: 20px;
+  background-color: #3b5bae;
+  border-radius: 10px;
 
-    background-color: #F69D4A;
-    border-radius: 10px;
+  font-weight: bold;
+  color: white;
+  font-size: 18px;
+  font-family: "Open Sans";
+  font-style: normal;
+}
 
-    font-size: 25px;
-    
-    font-weight: bold;
-    font-family: "Open Sans";
-    font-style: normal;
-  }
+.pilih-alamat {
+  display: flex;
+  justify-content: center;
+}
 
+.btn-pilih-alamat {
+  width: 360px;
+  height: 50px;
 
+  margin-top: 20px;
 
+  background-color: #f69d4a;
+  border-radius: 10px;
+
+  font-size: 25px;
+
+  font-weight: bold;
+  font-family: "Open Sans";
+  font-style: normal;
+}

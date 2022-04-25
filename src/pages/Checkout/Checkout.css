@@ -12,7 +12,7 @@
 
 .container-payment {
   min-height: 100%;
-  background-color: #3B5BAE;
+  background-color: #3b5bae;
   width: 395px;
 }
 
@@ -25,11 +25,10 @@
 }
 
 .judul-header-address {
-  
   margin-left: 20px;
   margin-top: 20px;
   font-weight: bold;
-  color: #C5660E;
+  color: #c5660e;
   font-size: 20px;
   font-family: "Manrope";
   font-style: normal;
@@ -84,15 +83,15 @@
   background-color: white;
   /* margin: 40px auto; */
   margin-top: 20px;
-  margin-bottom: 30px;
-  
+  margin-bottom: 50px;
+
   /* border-radius: 20px; */
 }
 
 .judul-payment-method {
   margin-left: 20px;
   font-weight: bold;
-  color: #C5660E;
+  color: #c5660e;
   font-size: 20px;
 
   font-family: "Manrope";
@@ -100,17 +99,27 @@
 }
 
 .box-list-payment {
-  padding-top: 20px;
+  height: 300px;
 }
 
 .top-list-payment {
   margin-top: 15px;
   margin-left: -20px;
+  height: 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .rd-payment-method {
   min-height: 60px;
   margin-left: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.rd-choose-outlet {
+  min-height: 60px;
+  margin-left: 20px;
   display: flex;
   align-items: center;
 }
@@ -127,8 +136,6 @@
   font-family: "Manrope";
   font-style: normal;
 }
-
-
 
 .rd-harga {
   margin-left: 20px;
@@ -170,17 +177,15 @@
 }
 
 .deskripsi-total-price {
-  color: #3B5BAE;
+  color: #3b5bae;
   font-size: 12px;
   margin-top: 5px;
   font-weight: 700;
-  
 }
 
 .total-price {
   font-size: 20px;
   font-weight: bold;
-  
 }
 
 .nominal-total-price {
@@ -198,7 +203,7 @@
 .order {
   width: 200px;
   height: 30px;
-  background-color: #3B5BAE;
+  background-color: #3b5bae;
   border-radius: 10px;
   font-size: 20px;
   font-weight: 800;
@@ -214,25 +219,28 @@
   justify-content: center;
 }
 
-.line-address{
+.line-address {
   width: 85%;
   height: 3px;
-  background-color: #3B5BAE;
+  background-color: #3b5bae;
   margin: 20px auto;
 }
 
-.line-total-price{
+.line-total-price {
   width: 85%;
   height: 3px;
-  background-color: #3B5BAE;
+  background-color: #3b5bae;
   margin: 20px auto;
-  margin-bottom: -50px;
-  
+  margin-bottom: -40px;
 }
 
-
-
-
+.line-choose-century {
+  width: 85%;
+  height: 3px;
+  background-color: #3b5bae;
+  margin: 20px auto;
+  margin-bottom: 20px;
+}
 
 @media only screen and (min-width: 768px) and (min-height: 1024px) {
   .container-payment {

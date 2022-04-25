@@ -1,19 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { useNavigate } from "react-router-dom";
+import Geocode from "react-geocode";
 import styles from "./MapsPinpoint.css";
 
 function MapsPinpoint() {
   const [currentPosition, setCurrentPosition] = useState({});
+  const [currentAddress, setCurrentAddress] = useState([]);
   let navigate = useNavigate();
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(success);
+    Geocode.setApiKey("AIzaSyB6Jb0JULqpai24UL-zql2BW7UeG0TAGGE");
   }, []);
 
   useEffect(() => {
     console.log("current position", currentPosition);
   }, [currentPosition]);
+
+  useEffect(() => {
+    console.log("current address", currentAddress);
+  }, [currentAddress]);
 
   const success = (position) => {
     const currentPosition = {
@@ -27,10 +34,22 @@ function MapsPinpoint() {
     const lat = e.latLng.lat();
     const lng = e.latLng.lng();
     setCurrentPosition({ lat, lng });
+
+    Geocode.setLanguage("en");
+    Geocode.setRegion("id");
+    Geocode.enableDebug();
+    Geocode.fromLatLng(lat, lng).then(
+      (response) => {
+        setCurrentAddress(response.results[0]);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
   };
 
   const mapStyles = {
-    height: "93vh",
+    height: "80vh",
     width: "100%",
     margin: "25px auto",
   };
@@ -53,16 +72,27 @@ function MapsPinpoint() {
               mapContainerStyle={mapStyles}
               zoom={15}
               center={currentPosition}
+              onClick={(e) => onMarkerDragEnd(e)}
             >
               {currentPosition.lat ? (
                 <Marker
                   position={currentPosition}
-                  onDrag={(e) => onMarkerDragEnd(e)}
+                  // onDrag={(e) => onMarkerDragEnd(e)}
                   draggable={true}
                 />
               ) : null}
             </GoogleMap>
           </LoadScript>
+          <div className="simpan-alamat">
+            <button
+              className="btn-simpan-alamat"
+              onClick={() =>
+                navigate("/cari-alamat", { state: currentAddress })
+              }
+            >
+              Simpan
+            </button>
+          </div>
         </div>
       </div>
     </div>

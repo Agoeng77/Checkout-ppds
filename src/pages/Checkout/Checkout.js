@@ -1,76 +1,204 @@
 import { React, useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import styles from "./Checkout.css";
 import GambarOvo from "./ovo.png";
+import GambarBank from "./bank.png";
 
 function Checkout() {
   let navigate = useNavigate();
 
-  var [totalPrice, setTotalPrice] = useState("");
-  var [medicinePrice, setMedicinePrice] = useState("");
-  var [deliveryService, setDeliveryService] = useState("");
-  var [discount, setDiscount] = useState("");
+  var [totalPrice, setTotalPrice] = useState(0);
+  var [medicinePrice, setMedicinePrice] = useState(0);
+  var [deliveryService, setDeliveryService] = useState(10000);
+  var [discount, setDiscount] = useState(0);
   var [metodeBayar, setMetodeBayar] = useState("");
 
-  var [address, setAddress] = useState("");
+  var [address, setAddress] = useState(
+    window.sessionStorage.getItem("defaultAlamat")
+      ? JSON.parse(window.sessionStorage.getItem("defaultAlamat"))
+      : []
+  );
 
-  const [listPaymentMethod, setListPaymentMethod] = useState([
-    {
-      listPaymentMethod: "Ovo",
-      totalBayar: 90000,
-      gambarPayment: GambarOvo,
-    },
-  ]);
+  const [listPaymentMethod, setListPaymentMethod] = useState([]);
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState([]);
+  const [listVirtualAccount, setListVirtualAccount] = useState([]);
+  const [selectedVirtualAccount, setSelectedVirtualAccount] = useState([]);
+  const [detailCheckout, setDetailCheckout] = useState(
+    window.sessionStorage.getItem("checkoutList")
+      ? JSON.parse(window.sessionStorage.getItem("checkoutList"))
+      : []
+  );
 
-  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState("");
+  let location = useLocation();
 
   useEffect(() => {
-    var url = ``;
+    console.log("location", location);
+    if (location.state !== null) {
+      setDetailCheckout(location.state);
+      window.sessionStorage.setItem(
+        "checkoutList",
+        JSON.stringify(location.state)
+      );
+    }
+  }, []);
+
+  useEffect(() => {
+    console.log("address", address);
+  }, [address]);
+
+  useEffect(() => {
+    if (detailCheckout.length !== 0) {
+      var tempArr = [...detailCheckout];
+      var tempTotal = 0;
+      for (let i = 0; i < tempArr.length; i++) {
+        tempTotal += tempArr[i].SaleUnit * tempArr[i].QuantityOrder;
+      }
+      setMedicinePrice(tempTotal);
+    }
+  }, [detailCheckout]);
+
+  useEffect(() => {
+    var url = `https://staging-api.cfu.pharmalink.id/nicepay/ppds?find=paymentmethod`;
 
     axios.get(url).then((response) => {
       console.log("resp", response);
 
-      if (response.data.data !== "") {
+      if (response.data.data !== undefined && response.data.data !== null) {
         setListPaymentMethod(response.data.data);
-      } else {
       }
     });
   }, []);
 
   useEffect(() => {
-    var url = ``;
-
-    axios.get(url).then((response) => {
-      console.log("resp", response);
-
-      if (response.data.data !== "") {
-        setTotalPrice(response.data.data.total_price);
-        setMedicinePrice(response.data.data.medicine_price);
-        setDeliveryService(response.data.data.delivery_service);
-        setDiscount(response.data.data.discount);
-        setMetodeBayar(response.data.dat.metode_bayar);
-      } else {
-        setTotalPrice("");
-        setMedicinePrice("");
-        setDeliveryService("");
-        setDiscount("");
-        setMetodeBayar("");
-      }
-    });
+    var url = `https://staging-api.cfu.pharmalink.id/nicepay/ppds?find=vacclist`;
+    axios
+      .get(url)
+      .then((response) => {
+        if (response.data.data !== undefined && response.data.data !== null) {
+          setListVirtualAccount(response.data.data);
+        }
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
   }, []);
-
-  // useEffect(() => {
-  //   if (selectedPaymentMethod.length !== 0) {
-  //     console.log("selected payment method", JSON.parse(selectedPaymentMethod));
-  //   }
-  // }, [selectedPaymentMethod]);
 
   useEffect(() => {
     if (selectedPaymentMethod.length !== 0) {
-      console.log("selected payment method", selectedPaymentMethod);
+      console.log("payment method", JSON.parse(selectedPaymentMethod));
     }
-  }, [selectedPaymentMethod]);
+
+    if (selectedVirtualAccount.length !== 0) {
+      console.log("Virtual Account", JSON.parse(selectedVirtualAccount));
+    }
+  }, [selectedPaymentMethod, selectedVirtualAccount]);
+
+  function Order() {
+    var url;
+    var postObj;
+    var parsedPaymentType = JSON.parse(selectedPaymentMethod);
+    console.log("parsed payment type", parsedPaymentType);
+
+    if (parsedPaymentType.MethodID === 1) {
+      url = "https://staging-api.cfu.pharmalink.id/nicepay/payment?method=OVO";
+      postObj = {
+        OrderID: "12345",
+        OrderTotalPrice: medicinePrice + deliveryService,
+        MemberID: "M001",
+        MemberPhone: "087788842861",
+        Address: address.AddressFull,
+        AddressCity: address.CityName,
+        AddressDistrict: address.SubDistrictName,
+        AddressPostalCode: address.PostalCode,
+        BankID: "",
+        ProjectName: "PPDS",
+      };
+    } else {
+      var parsedVirtualAccount = JSON.parse(selectedVirtualAccount);
+      url =
+        "https://staging-api.cfu.pharmalink.id/nicepay/payment?method=VACC  ";
+      postObj = {
+        OrderID: "12345",
+        OrderTotalPrice: medicinePrice + deliveryService,
+        MemberID: "M001",
+        MemberPhone: "087788842861",
+        Address: address.AddressFull,
+        AddressCity: address.CityName,
+        AddressDistrict: address.SubDistrictName,
+        AddressPostalCode: address.PostalCode,
+        BankID: parsedVirtualAccount.BankID,
+        ProjectName: "PPDS",
+      };
+    }
+
+    console.log("url", url);
+    console.log("post obj", postObj);
+
+    axios
+      .post(url, postObj)
+      .then((response) => {
+        console.log("response post order", response);
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  }
+
+  function returnListVirtualAccount() {
+    if (selectedPaymentMethod.length !== 0) {
+      if (JSON.parse(selectedPaymentMethod).MethodID === 2) {
+        return (
+          listVirtualAccount &&
+          listVirtualAccount.map((item) => (
+            <div className="list-payment">
+              <div className="rd-payment-method">
+                <input
+                  className="rd-option"
+                  id="option"
+                  type="radio"
+                  name="field"
+                  // value={JSON.stringify(item)}
+                  value={JSON.stringify(item)}
+                  onChange={(e) => setSelectedVirtualAccount(e.target.value)}
+                />
+                <img
+                  src={item.ImageURL}
+                  style={{ width: "20px", height: "20px" }}
+                  alt=""
+                  className="logo-payment"
+                />
+
+                <div className="harga-option">
+                  <label htmlFor="option" className="rd-label">
+                    {item.VACCName}
+                  </label>
+                  <br />
+                  <label htmlFor="option" className="rd-harga">
+                    Rp.{medicinePrice + deliveryService}
+                  </label>
+                </div>
+              </div>
+            </div>
+          ))
+        );
+      }
+    }
+  }
+
+  function returnMetodeBayar() {
+    if (selectedPaymentMethod.length !== 0) {
+      if (JSON.parse(selectedPaymentMethod).MethodID === 1) {
+        return "Ovo";
+      } else if (JSON.parse(selectedPaymentMethod).MethodID === 2) {
+        if (selectedVirtualAccount.length !== 0) {
+          return JSON.parse(selectedVirtualAccount).VACCName;
+        } else {
+          return "Virtual Account";
+        }
+      }
+    }
+  }
 
   return (
     <div className="body-payment">
@@ -91,10 +219,7 @@ function Checkout() {
             <div className="judul-header-address">Address</div>
 
             <div className="jalan-user">
-              <p className="alamat-user">
-                Jl. Limo No.40, RT.8/RW.10, Grogol Sel., Kec. Kby. Lama, Jakarta
-                Selatan
-              </p>
+              <p className="alamat-user">{address.AddressFull}</p>
               <iconbutton
                 className="change"
                 onClick={() => navigate("/daftar-alamat")}
@@ -107,6 +232,36 @@ function Checkout() {
           <div className="line-address"></div>
 
           <div className="content-payment">
+            <div className="box-choose-payment">
+              <span className="judul-payment-method">
+                Choose Century Outlet
+              </span>
+
+              <div className="list-payment">
+                <div className="rd-choose-outlet">
+                  <input
+                    className="rd-option"
+                    id="option"
+                    type="radio"
+                    name="field"
+                    value="option"
+                  />
+                  <img
+                    src="assets/img/dana.png"
+                    alt=""
+                    className="logo-payment"
+                  />
+
+                  <div className="harga-option">
+                    <label htmlFor="option" className="rd-label">
+                      Century Jakarta Selatan
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="line-choose-century"></div>
+
             <div className="box-list-payment">
               <span className="judul-payment-method">
                 Choose Payment Method
@@ -123,112 +278,30 @@ function Checkout() {
                           type="radio"
                           name="field"
                           // value={JSON.stringify(item)}
-                          value="OVO"
+                          value={JSON.stringify(item)}
                           onChange={(e) =>
                             setSelectedPaymentMethod(e.target.value)
                           }
                         />
                         <img
-                          src={item.gambarPayment}
+                          src={item.MethodID === 1 ? GambarOvo : GambarBank}
                           alt=""
                           className="logo-payment"
                         />
 
                         <div className="harga-option">
                           <label htmlFor="option" className="rd-label">
-                            {item.listPaymentMethod}
+                            {item.MethodName}
                           </label>
                           <br />
                           <label htmlFor="option" className="rd-harga">
-                            Rp.{item.totalBayar}
+                            Rp.{medicinePrice + deliveryService}
                           </label>
                         </div>
                       </div>
                     </div>
                   ))}
-
-                {/* <div className="list-payment">
-                  <div className="rd-payment-method">
-                    <input
-                      className="rd-option"
-                      id="option"
-                      type="radio"
-                      name="field"
-                      value="option"
-                    />
-                    <img
-                      src="assets/img/gopay.png"
-                      alt=""
-                      className="logo-payment"
-                    />
-
-                    <div className="harga-option">
-                      <label htmlFor="option" className="rd-label">
-                        Gopay
-                      </label>
-                      <br />
-                      <label htmlFor="option" className="rd-harga">
-                        Rp.100.000
-                      </label>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="list-payment">
-                  <div className="rd-payment-method">
-                    <input
-                      className="rd-option"
-                      id="option"
-                      type="radio"
-                      name="field"
-                      value="option"
-                    />
-                    <img
-                      src="assets/img/dana.png"
-                      alt=""
-                      className="logo-payment"
-                    />
-
-                    <div className="harga-option">
-                      <label htmlFor="option" className="rd-label">
-                        Dana
-                      </label>
-                      <br />
-                      <label htmlFor="option" className="rd-harga">
-                        Rp.100.000
-                      </label>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="list-payment">
-                  <div className="rd-payment-method">
-                    <input
-                      className="rd-option"
-                      id="option"
-                      type="radio"
-                      name="field"
-                      value="option"
-                    />
-                    <img
-                      src="assets/img/bank.png"
-                      alt=""
-                      className="logo-payment"
-                    />
-
-                    <div className="harga-option">
-                      <label htmlFor="option" className="rd-label">
-                        Bank Transfer
-                      </label>
-                      <br />
-                      <label htmlFor="option" className="rd-harga">
-                        Rp.100.000
-                      </label>
-                    </div>
-                  </div> 
-
-                  <div className="line-total-price"></div>
-                </div>*/}
+                {returnListVirtualAccount()}
               </div>
             </div>
           </div>
@@ -249,22 +322,26 @@ function Checkout() {
             </div>
 
             <div className="nominal-deskripsi">
-              <div className="nominal-total-price">{totalPrice} Rp. 90.000</div>{" "}
+              <div className="nominal-total-price">
+                {medicinePrice + deliveryService}
+              </div>{" "}
               <br />
               <div className="deskripsi-total-price">
-                {medicinePrice} Rp.80.000
+                {medicinePrice}
                 <br />
-                {deliveryService} Rp.10.000
+                {deliveryService}
                 <br />
-                {discount} 0
+                {discount}
                 <br />
-                {metodeBayar} Ovo
+                {returnMetodeBayar()}
               </div>
             </div>
           </div>
 
           <div className="btn-order">
-            <button className="order">Order</button>
+            <button className="order" onClick={() => Order()}>
+              Order
+            </button>
           </div>
         </div>
       </div>

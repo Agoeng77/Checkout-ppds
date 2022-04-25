@@ -17,7 +17,7 @@
 .container {
   min-height: 400px;
   min-width: 395px;
-  background-color: grey;
+  background-color: white ;
   margin-top: -100px;
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
@@ -113,13 +113,10 @@
 
 .nama-pasien {
   text-align: right;
-  margin-left: 120px;
+  margin-left: 160px;
   margin-top: 10px;
+
   font-size: 15px;
-
-  /* font-family: "Manrope";
-  font-style: normal; */
-
   font-family: "Manrope";
   font-style: normal;
 }
@@ -134,7 +131,9 @@
 .list-obat {
   min-height: 130px;
   background-color: white;
-  margin-bottom: 1.5px;
+  border-color: grey;
+  border-style: inset;
+  border-width: 1px;
 
   display: flex;
   flex-direction: row;
@@ -147,7 +146,7 @@
 
 .jumlah-obat {
   color: #760000;
-  margin-left: -45px;
+  margin-left: -25px;
   margin-top: 10px;
   
   font-weight: bold;
@@ -255,7 +254,7 @@ input[type="checkbox"]:focus {
   
   font-family: "Manrope";
   font-style: normal;
-  margin-left: 45px;
+  margin-left: 15px;
   margin-top: -1px;
 }
 
